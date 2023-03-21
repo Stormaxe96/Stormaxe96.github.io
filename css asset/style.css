@@ -46,3 +46,6 @@ p {
 .button:hover {
     background-color: #2980b9;
 }
+img{
+    border-radius: 40px;
+}
