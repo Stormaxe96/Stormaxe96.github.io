@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 100 Marketcap Crypto</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 100 Marketcap Crypto</title>
+    <link rel="stylesheet" href="../css asset/navbar.css">
+	  <link rel="stylesheet" href="../css asset/navbarprincipal.css">  
+	  <script src="../js asset/banner.js"></script>
+	  <link rel="stylesheet" href="../css asset/banner.css">
+    <link rel="stylesheet" href="../css asset/nav.css">	
+	<link rel="stylesheet" href="../css asset/newsletter.css">
+	<script src="../js asset/newsletter.js"></script> 
+	<script src="../js asset/timer.js"></script> 
+	<script src="../js asset/navbar.js"></script>
+  <link rel="stylesheet" href="../css asset/style.css">
+  <link rel="stylesheet" href="../css asset/navbarfix.css">
+  <script src="../js asset/navbarfix.js"></script>
+  <header>
+    <nav>
+      <ul>
+  <div class="navbar">
+    <div class="nav-items">
+      <a href="../index.html">Home</a>
+      <a href="../html page/bitcoin.html">Bitcoin</a>
+      <a href="../html page/altcoins.html">Altcoins</a>
+      <a href="../html page/top10proiectecrypto.html">Top 10 Proiecte Crypto</a>
+      <a href="#">Noutatile saptamanii</a>
+      <a href="../html page/top100crypto.html">Top 100 Marketcap Crypto</a>
+      <a href="#">Top 10 proiecte NFT</a>
+      <a href="../html page/bitcoindominance.html">Bitcoin Dominance</a>
+	  <a href="../html page/bitcoinrainbowchart.html">Bitcoin Rainbow</a>
+      <a href="#">Macro Evenimente</a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+    </div>
+    </div>
+  </ul>
+</nav>
+</header>
+</head>
+<!DOCTYPE html>
+<html>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<head>
+	<title>Bitcoin Dominance</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #1d1d1d;
+			font-family: Arial, sans-serif;
+			color: #fff;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+
+		.dominance-label {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.dominance-value {
+			font-size: 64px;
+			font-weight: bold;
+			color: green;
+			text-shadow: 0 0 10px green;
+		}
+
+		.refresh-button {
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			background-color: green;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+			box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
+			transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+			margin-top: 20px;
+		}
+
+		.refresh-button:hover {
+			background-color: #006400;
+			box-shadow: 0 0 20px rgba(0, 128, 0, 1);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="dominance-label">Bitcoin Dominance:</div>
+		<div class="dominance-value" id="dominance-value"></div>
+		<button class="refresh-button" id="refresh-button">Refresh</button>
+	</div>
+
+	<script>
+		// Define a function to fetch the Bitcoin dominance data
+		function getBitcoinDominance() {
+			fetch('https://api.coingecko.com/api/v3/global')
+				.then(response => response.json())
+				.then(data => {
+					// Extract the Bitcoin dominance value and update the DOM
+					const dominance = data.data.market_cap_percentage.btc.toFixed(2);
+					document.getElementById('dominance-value').innerHTML = `${dominance}%`;
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		}
+
+		// Call the function to fetch and display the Bitcoin dominance initially
+		getBitcoinDominance();
+
+		// Set an interval to update the Bitcoin dominance every 30 seconds
+		setInterval(() => {
+			getBitcoinDominance();
+		}, 30 * 1000);
+
+		// Add a click event listener to the refresh button to update the Bitcoin dominance immediately
+		document.getElementById('refresh-button').addEventListener('click', () => {
+			getBitcoinDominance();
+		});
+	</script>
+</body>
+</html>

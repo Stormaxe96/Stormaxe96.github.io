@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 100 Marketcap Crypto</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 100 Marketcap Crypto</title>
+    <link rel="stylesheet" href="../css asset/navbar.css">
+	  <link rel="stylesheet" href="../css asset/navbarprincipal.css">  
+	  <script src="../js asset/banner.js"></script>
+	  <link rel="stylesheet" href="../css asset/banner.css">
+    <link rel="stylesheet" href="../css asset/nav.css">	
+	<link rel="stylesheet" href="../css asset/newsletter.css">
+	<script src="../js asset/newsletter.js"></script> 
+	<script src="../js asset/timer.js"></script> 
+	<script src="../js asset/navbar.js"></script>
+  <link rel="stylesheet" href="../css asset/style.css">
+  <link rel="stylesheet" href="../css asset/navbarfix.css">
+  <script src="../js asset/navbarfix.js"></script>
+  <header>
+    <nav>
+      <ul>
+  <div class="navbar">
+    <div class="nav-items">
+      <a href="../index.html">Home</a>
+      <a href="../html page/bitcoin.html">Bitcoin</a>
+      <a href="../html page/altcoins.html">Altcoins</a>
+      <a href="../html page/top10proiectecrypto.html">Top 10 Proiecte Crypto</a>
+      <a href="#">Noutatile saptamanii</a>
+      <a href="../html page/top100crypto.html">Top 100 Marketcap Crypto</a>
+      <a href="#">Top 10 proiecte NFT</a>
+      <a href="../html page/bitcoindominance.html">Bitcoin Dominance</a>
+      <a href="../html page/bitcoinrainbowchart.html">Bitcoin Rainbow</a>
+      <a href="#">Macro Evenimente</a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+    </div>
+    </div>
+  </ul>
+</nav>
+</header>
+</head>
+    <title>Top 100 Crypto Proiecte</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Top 100 Crypto Proiecte</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Simbol</th>
+          <th>Nume</th>
+          <th>Preț</th>
+          <th>Volum (24h)</th>
+        </tr>
+      </thead>
+      <tbody id="crypto-list"></tbody>
+    </table>
+
+    <script>
+      async function getCryptoData() {
+        const response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h");
+        const data = await response.json();
+        return data;
+      }
+
+      async function displayCryptoData() {
+        const cryptoData = await getCryptoData();
+        const cryptoList = document.getElementById("crypto-list");
+        cryptoList.innerHTML = "";
+
+        cryptoData.forEach(crypto => {
+          const row = document.createElement("tr");
+
+          const symbolCell = document.createElement("td");
+          symbolCell.textContent = crypto.symbol.toUpperCase();
+          row.appendChild(symbolCell);
+
+          const nameCell = document.createElement("td");
+          nameCell.textContent = crypto.name;
+          row.appendChild(nameCell);
+
+          const priceCell = document.createElement("td");
+          priceCell.textContent = `$${crypto.current_price.toFixed(2)}`;
+          row.appendChild(priceCell);
+
+          const volumeCell = document.createElement("td");
+          volumeCell.textContent = `$${crypto.total_volume.toLocaleString()}`;
+          row.appendChild(volumeCell);
+
+          cryptoList.appendChild(row);
+        });
+      }
+
+      displayCryptoData();
+      setInterval(displayCryptoData, 60000); // refresh data every minute
+    </script>
+  </body>
+</html>
