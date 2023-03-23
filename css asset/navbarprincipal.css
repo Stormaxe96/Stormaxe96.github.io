@@ -1,0 +1,25 @@
+.navbar {
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .nav-items {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-items a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav-items a:hover {
+    background-color: #ddd;
+    color: black;
+  }
