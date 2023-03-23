@@ -22,4 +22,5 @@
   .nav-items a:hover {
     background-color: #dfdada;
     color: rgb(7, 7, 7);
+    border-radius: 40px;
   }
