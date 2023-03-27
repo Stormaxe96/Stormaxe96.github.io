@@ -49,3 +49,37 @@ p {
 img{
     border-radius: 40px;
 }
+
+
+/* Setarea dimensiunii fontului */
+body {
+  font-size: 16px;
+}
+
+/* Utilizarea marginilor pentru a separa textul */
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Asigurarea unei lățimi adecvate pentru text */
+p {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Utilizarea unei culori coerente și ușor de citit */
+body {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Utilizarea unităților relative pentru a asigura o afișare coerentă pe dispozitive diferite */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+}
+
